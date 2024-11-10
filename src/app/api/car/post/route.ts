@@ -1,7 +1,6 @@
 
 import { connectToDB, disconnectFromDB } from "@/app/DB/connectinManager/connection";
 import Car from "@/app/DB/models/Car";
-import User from "@/app/DB/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
 
@@ -24,7 +23,6 @@ export async function POST(req: NextRequest) {
     }
     catch (err) {
         console.log(err);
-
         return NextResponse.json({ status: 400, massage: "error creating car", err: err });
 
     }

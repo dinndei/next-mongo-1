@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useCarStore } from '@/app/store/carStore';
 import CarCard from '@/app/components/CarCard';
+import { createCar } from '@/app/services/carActions';
 
 const CarsPage: React.FC = () => {
   const { cars, addCar ,initCars } = useCarStore();
@@ -12,6 +13,7 @@ const CarsPage: React.FC = () => {
     e.preventDefault();
     if (name && model) {
       addCar( name, model );
+      createCar(String(Date.now()),name,model);
       setName('');
       setModel('');
     }

@@ -14,7 +14,9 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
 
   const handleDelete = () => {
     deleteCar(car.id)
-    deleteById(String(car.id));
+    if (car._id) {
+      deleteById(car._id);
+    }
   };
 
   const handleEdit = () => {
@@ -22,8 +24,9 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
     const newModel = prompt('Enter new car model:', car.model);
     if (newName && newModel) {
     const updatedCar:Car={id:car.id, name: newName, model: newModel }
+
+      updateCarById(car._id,updatedCar );
       editCar(car.id,updatedCar );
-      updateCarById(car.id,updatedCar );
       
     }
   };

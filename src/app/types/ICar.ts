@@ -1,6 +1,8 @@
+import {  Types } from "mongoose";
+
 export interface ICar extends Document{
-    id: string;
-    name: string;
-    model: string;
-  }
-  
+  _id: Types.ObjectId; 
+  id: string;
+  name: string;
+  model: string;
+}
